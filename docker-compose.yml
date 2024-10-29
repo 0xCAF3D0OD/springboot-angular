@@ -9,4 +9,16 @@ services:
     volumes:
       - ./src:/app/src
       - ./target:/app/target
+  db:
+    image: mariadb:10.5
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
 
+  adminer:
+    image: adminer:4.8.0
+    restart: always
+    ports:
+      - "8080:8080"
