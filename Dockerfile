@@ -14,5 +14,3 @@ RUN ./mvnw dependency:go-offline
 COPY src ./src
 
 CMD ["./watch-and-run.sh"]
-
-
