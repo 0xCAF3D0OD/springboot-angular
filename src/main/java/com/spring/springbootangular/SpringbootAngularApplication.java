@@ -25,7 +25,7 @@ public class SpringbootAngularApplication {
 		}
 		@GetMapping("/test2")
 		public String test2() {
-			return "Hello wwewewe";
+			return "Hello w";
 		}
 	}
 }

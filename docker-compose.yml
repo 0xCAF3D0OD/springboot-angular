@@ -9,11 +9,4 @@ services:
     volumes:
       - ./src:/app/src
       - ./target:/app/target
-#version: '3'
-#services:
-#  app:
-#    build: .
-#    volumes:
-#      - ./src:/app/src
-#    ports:
-#      - "3000:3000"
+
