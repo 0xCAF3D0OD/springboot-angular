@@ -1,16 +1,26 @@
-FROM openjdk:24-jdk-slim
+# Use Java 21 base image
+FROM eclipse-temurin:21-jdk
 
+# Set working directory
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y entr
+# Install Maven
+RUN apt-get update && \
+    apt-get install -y maven && \
+    apt-get clean
 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-COPY watch-and-run.sh ./
+# Copy pom.xml separately to cache dependencies
+COPY pom.xml .
 
-RUN chmod +x mvnw watch-and-run.sh
-RUN ./mvnw dependency:go-offline
+# Download dependencies
+RUN mvn dependency:go-offline
 
+# Copy source code
 COPY src ./src
 
-CMD ["./watch-and-run.sh"]
+# Expose ports
+EXPOSE 8080
+EXPOSE 35729
+
+# Run the application with DevTools enabled
+CMD ["mvn", "spring-boot:run"]

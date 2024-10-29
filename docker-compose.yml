@@ -1,18 +1,19 @@
-#version: '3.8'
-#
-#services:
-#  spring:
-#    image: dinokeke/spring-docker:0.0.2
-#    ports:
-#      - "3000:3000"
-#    volumes:
-#      - ./target/classes:/workspace/BOOT-INF/classes/
+version: '3.8'
 
-version: '3'
 services:
-  app:
+  spring-app:
     build: .
+    ports:
+      - "3000:3000"  # Application port
+      - "35729:35729"  # LiveReload port
     volumes:
       - ./src:/app/src
-    ports:
-      - "3000:3000"
+      - ./target:/app/target
+#version: '3'
+#services:
+#  app:
+#    build: .
+#    volumes:
+#      - ./src:/app/src
+#    ports:
+#      - "3000:3000"

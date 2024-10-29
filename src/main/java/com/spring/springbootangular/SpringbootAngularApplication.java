@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.rmi.registry.Registry;
+
 @SpringBootApplication
 public class SpringbootAngularApplication {
 
@@ -15,7 +17,15 @@ public class SpringbootAngularApplication {
 	public static class TestControllerTest {
 		@GetMapping("/test")
 		public String test() {
-			return "Hello World i'm the best and you know it, right ?";
+			return "Hello World";
+		}
+		@GetMapping("/test1")
+		public String test1() {
+			return "Hello";
+		}
+		@GetMapping("/test2")
+		public String test2() {
+			return "Hello wwewewe";
 		}
 	}
 }
