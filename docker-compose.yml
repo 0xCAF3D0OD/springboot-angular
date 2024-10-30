@@ -17,11 +17,11 @@ services:
   front:
     tty: true
     build:
-      context: ./front/docker
+      context: ./front/
     ports:
       - '4200:4200'
     container_name: front
     volumes:
-      - "./front:/usr/src/app"
+      - "./front/angular-app:/usr/src/app"
     working_dir: /usr/src/app
     restart: always
