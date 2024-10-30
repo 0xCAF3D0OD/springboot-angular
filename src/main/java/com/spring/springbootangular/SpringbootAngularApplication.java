@@ -13,16 +13,19 @@ public class SpringbootAngularApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootAngularApplication.class, args);
 	}
+
 	@RestController
 	public static class TestControllerTest {
 		@GetMapping("/test")
 		public String test() {
 			return "Hello World";
 		}
+
 		@GetMapping("/test1")
 		public String test1() {
-			return "Hello";
+			return "Hello tets";
 		}
+
 		@GetMapping("/test2")
 		public String test2() {
 			return "Hello w";

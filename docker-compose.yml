@@ -10,3 +10,29 @@ services:
       - ./src:/app/src
       - ./target:/app/target
 
+<<<<<<< HEAD
+=======
+  adminer:
+    image: adminer:4.8.0
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - Springboot-angular
+
+  front:
+    tty: true
+    build:
+      context: ./front/
+    ports:
+      - '4200:4200'
+    container_name: front
+    volumes:
+      - "./front/angular-app:/usr/src/app"
+    restart: always
+    networks:
+      - Springboot-angular
+
+networks:
+  Springboot-angular:
+>>>>>>> 1c4eb4a (merge tchapp front)
