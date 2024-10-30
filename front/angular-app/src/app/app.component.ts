@@ -7,7 +7,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
   template: `
     <h1>Welcome to {{title}}!</h1>
-    <h2>kevin le boss</h2>
+    <h2>kevin le kikoo</h2>
 
     <router-outlet />
   `,
