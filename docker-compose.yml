@@ -29,5 +29,18 @@ services:
     networks:
       - Springboot-angular
 
+  front:
+    tty: true
+    build:
+      context: ./front/
+    ports:
+      - '4200:4200'
+    container_name: front
+    volumes:
+      - "./front/angular-app:/usr/src/app"
+    restart: always
+    networks:
+      - Springboot-angular
+
 networks:
   Springboot-angular:
