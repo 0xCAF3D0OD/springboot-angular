@@ -2,13 +2,14 @@ version: '3.8'
 
 services:
   spring-app:
-    build: .
+    build:
+      context: ./srcs/springboot/
     ports:
       - "3000:3000" # Application port
       - "35729:35729" # LiveReload port
     volumes:
-      - ./src:/app/src
-      - ./target:/app/target
+      - ./srcs/springboot/src:/app/src
+      - ./srcs/springboot/target:/app/target
     networks:
       - Springboot-angular
   db:
@@ -32,12 +33,12 @@ services:
   front:
     tty: true
     build:
-      context: ./front/
+      context: ./srcs/angular/
     ports:
       - '4200:4200'
-    container_name: front
+    container_name: angular
     volumes:
-      - "./front/angular-app:/usr/src/app"
+      - "./srcs/angular/angular-app:/usr/src/app"
     restart: always
     networks:
       - Springboot-angular

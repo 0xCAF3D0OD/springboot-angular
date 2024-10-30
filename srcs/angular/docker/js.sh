@@ -5,5 +5,8 @@ if [ ! -d "node_modules" ]; then
 else
   echo "Dependencies already installed."
 fi
+
+echo "installing angular cli"
+
 yarn global add @angular/cli@18.2.10
 ng serve --host "0.0.0.0" --disable-host-check=true --poll 100
