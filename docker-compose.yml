@@ -4,11 +4,22 @@ services:
   spring-app:
     build: .
     ports:
-      - "3000:3000"  # Application port
-      - "35729:35729"  # LiveReload port
+      - "3000:3000" # Application port
+      - "35729:35729" # LiveReload port
     volumes:
       - ./src:/app/src
       - ./target:/app/target
+    networks:
+      - Springboot-angular
+  db:
+    image: mariadb:10.5
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - Springboot-angular
 
   adminer:
     image: adminer:4.8.0
