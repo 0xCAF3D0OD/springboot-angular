@@ -1,7 +1,7 @@
 package com.spring.springbootangular.service;
 
 import org.springframework.stereotype.Service;
-import com.spring.springbootangular.entites.User;
+import com.spring.springbootangular.entites.UserEntity;
 import com.spring.springbootangular.repository.TestRepository;
 
 @Service
@@ -13,8 +13,8 @@ public class TestService {
 		this.testRepository = testRepository;
 	}
 
-	public User adduser(User user) {
-		this.testRepository.save(user);
-		return user;
+	public UserEntity adduser(UserEntity userEntity) {
+		this.testRepository.save(userEntity);
+		return userEntity;
 	}
 }

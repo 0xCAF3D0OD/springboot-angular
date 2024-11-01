@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.springbootangular.entites.User;
+import com.spring.springbootangular.entites.UserEntity;
 import com.spring.springbootangular.service.TestService;
 
 @RestController
-@RequestMapping(path = "test")
-public class Test {
+@RequestMapping(path = "usersTest")
+public class TestController {
 
 	private TestService testService;
 
-	public Test(TestService testService) {
+	public TestController(TestService testService) {
 		this.testService = testService;
 	}
 
@@ -27,14 +27,15 @@ public class Test {
 		return "taaaaass";
 	}
 
-	@GetMapping(path = "users")
+//	@GetMapping(path = "users")
+	@GetMapping
 	public List<String> getUsers() {
 		return List.of("kevin", "tanguy");
 	}
 
 	@PostMapping(path = "add")
-	public User adduser(@RequestBody User user) {
-		return this.testService.adduser(user);
+	public UserEntity adduser(@RequestBody UserEntity userEntity) {
+		return this.testService.adduser(userEntity);
 		// return user;
 	}
 }

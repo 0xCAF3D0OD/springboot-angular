@@ -2,7 +2,7 @@ package com.spring.springbootangular.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.spring.springbootangular.entites.User;
+import com.spring.springbootangular.entites.UserEntity;
 
-public interface TestRepository extends JpaRepository<User, Integer> {
+public interface TestRepository extends JpaRepository<UserEntity, Integer> {
 }
