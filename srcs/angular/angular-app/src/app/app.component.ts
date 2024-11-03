@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
-import { response } from 'express';
+import { FriendsListComponent } from '../component/friends-list/friends-list.component'
+import { FriendAddComponent } from '../component/friend-add/friend-add.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FriendsListComponent, FriendAddComponent],
   template: `
     <h1>Welcome to {{title}}!</h1>
-    <h2>kevin le kikoo</h2>
+    <h2>kevin le kikook</h2>
     <h2>avec fetch = {{data_fetch}}</h2>
     <h2>avec httpclient = {{data_httpclient}}</h2>
 
+    <app-friends-list></app-friends-list>
+    <app-friend-add></app-friend-add>
     <router-outlet />
   `,
   styles: [],
