@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "CONNECT")
 public class ConnectEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO);
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String login;
     private String email;
@@ -27,10 +27,11 @@ public class ConnectEntity {
     }
 
     public String getLogin() {
-        return this.login
+        return this.login;
     }
 
     public void setLogin(String login) {
         this.login = login;
     }
+
 }

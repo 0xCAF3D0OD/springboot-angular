@@ -1,21 +1,24 @@
 package com.spring.springbootangular.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.spring.springbootangular.entites.UserEntity;
+import com.spring.springbootangular.service.UserServices;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping(value = "user")
 public class UserController {
 
-    private UserController userController;
+    private UserServices userServices;
 
-    public UserController getUserController() {
-        return userController;
+    public UserController(UserServices userServices) {
+        this.userServices = userServices;
     }
 
-    public void setUserController(UserController userController) {
-        this.userController = userController;
+    @ResponseStatus(value = HttpStatus.CREATED)
+    @PostMapping(consumes = "application/json")
+    public void createUser(@RequestBody UserEntity client) {
+        this.userServices.createUser(client);
     }
 
-    public UserController() {}
 }
