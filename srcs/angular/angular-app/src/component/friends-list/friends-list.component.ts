@@ -7,23 +7,31 @@ import { HttpClient } from "@angular/common/http";
   standalone: true,
   imports: [CommonModule],
   template: `
-    <h1> Friends list</h1>
-    @if (friend) {
-    <div *ngFor='let friends of friend'>
-      <h1>{{friends.firstname}}</h1>
-      <h1>{{friends.lastname}}</h1>
-      <button (click)="deleteFriend(friends)">x</button>
+    <div class="container">
+      <h1>{{titre}}</h1>
+      <h1> Friends list</h1>
+      <button class="button-delete" (click)="enableFriendDeletionMode()">delete a friend</button>
     </div>
-    }
-    @else {
-      <h1>t as pas d'amis</h1>
-    }
+     @if (friend && friend.length > 0) {
+     <div *ngFor='let friends of friend'>
+        <h1>{{friends.firstname}}</h1>
+       <h1>{{friends.lastname}}</h1>
+       @if (delete_friends) {
+        <button (click)="deleteFriend(friends)">x</button>
+       }
+     </div>
+     }
+     @else {
+        <h1>t as pas d'amis</h1>
+     }
+    
   `,
   styleUrls: ['./friends-list.component.css']
 })
 export class FriendsListComponent {
   friend: any;
-
+  delete_friends: boolean = false;
+  titre: string = "test";
   private url: string = "http://localhost:3000/friend/";
 
   constructor(private http: HttpClient) {
@@ -35,9 +43,8 @@ export class FriendsListComponent {
 
   getFriends(): any {
     this.http.get(this.url,).subscribe((response) => {
-      console.log("response = ", response)
+      console.log(response);
       this.friend = response;
-      console.log("friend =", this.friend)
     },
       (error) => { console.log(error) }
     );
@@ -47,10 +54,15 @@ export class FriendsListComponent {
     let deleteUrl = this.url + user.id;
     this.http.delete(deleteUrl).subscribe(() => {
       console.log("friend ", user.id, " delete")
-      this.friend = this.friend.filter((friend: any) => friend.id !== user.id);
+      this.friend = this.friend.filter((friends_copy: any) => friends_copy.id !== user.id);
     },
       (error) => {
         console.log("delete friend error", error)
       });
   }
+
+  enableFriendDeletionMode(): any {
+    this.delete_friends = !this.delete_friends;
+  }
+
 }
