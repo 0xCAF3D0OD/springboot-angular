@@ -19,7 +19,7 @@ import { HttpClient } from "@angular/common/http";
       <h1>t as pas d'amis</h1>
     }
   `,
-  styles: ['div {background-color: blue; display: flex; height: 50px; align-items: center}', 'h1 {padding-right: 10px; text: center}', 'button {background-color: #04AA6D; border: none; color: white; padding: 10px 5px; text- align: center;text-decoration: none;display: inline-block; font-size: 16px;}']
+  styleUrls: ['./friends-list.component.css']
 })
 export class FriendsListComponent {
   friend: any;
