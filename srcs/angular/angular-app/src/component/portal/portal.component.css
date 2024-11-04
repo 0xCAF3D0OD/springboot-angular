@@ -1,0 +1,44 @@
+.container {
+	background-image: url("../../assets/antoine-barres.jpg");
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.top-section {
+	flex: 1;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.bottom-section {
+	display: flex;
+	flex: 1;
+}
+
+.left-section,
+.right-section {
+	flex: 1;
+}
+
+.left-section {
+	display: flex;
+}
+
+.right-section {
+	display: flex;
+}
+
+.titre {
+	margin: 70px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.titre-size {
+	font-size: 50px;
+	margin-bottom: 70px;
+}
