@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {FormsComponent} from "../forms";
 
 @Component({
   selector: 'app-friend-add',
@@ -23,7 +24,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
       <h1 style="color: red;">"Please enter a valid first and last name. All fields are required."</h1>
     }
   `,
-  styles: ``
+
 })
 export class FriendAddComponent {
 

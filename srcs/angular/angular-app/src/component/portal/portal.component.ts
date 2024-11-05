@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FriendsListComponent } from '../friends-list/friends-list.component'
 import { FriendAddComponent } from '../friend-add/friend-add.component'
+import {FormsComponent} from "../forms";
 
 @Component({
   selector: 'app-portal',
   standalone: true,
-  imports: [FriendsListComponent, FriendAddComponent],
+  imports: [FriendsListComponent, FriendAddComponent, FormsComponent],
   template: `
   <div class="container">
     <div class="top-section">
@@ -25,6 +26,7 @@ import { FriendAddComponent } from '../friend-add/friend-add.component'
       </div>
      <div class="right-section">
       <app-friend-add></app-friend-add>
+       <app-forms></app-forms>
       </div>
     </div>
   </div>
