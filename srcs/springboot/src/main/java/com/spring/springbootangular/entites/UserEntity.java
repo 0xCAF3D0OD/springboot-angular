@@ -15,24 +15,13 @@ public class UserEntity {
 	private int id;
 	@Column
 	private String email;
-	@Column
-	private String name;
-	@Column
-	private String nickname;
 
 	public int getId() {
 		return id;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public String getNickname() {
-		return nickname;
-	}
 }
