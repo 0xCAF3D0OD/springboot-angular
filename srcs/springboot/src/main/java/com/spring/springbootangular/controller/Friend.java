@@ -1,7 +1,5 @@
 package com.spring.springbootangular.controller;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.spring.springbootangular.entites.FriendEntity;
 import com.spring.springbootangular.service.FriendService;
+import com.spring.springbootangular.dto.ResponseDto;
 
 import java.util.List;
 
@@ -33,12 +32,12 @@ public class Friend {
 	}
 
 	@PostMapping("/creat")
-	public FriendEntity CreatFriend(@RequestBody FriendEntity friend) {
+	public ResponseDto CreatFriend(@RequestBody FriendEntity friend) {
 		return this.friendService.addfriend(friend);
 	}
 
 	@DeleteMapping("/{id}")
-	public void adduser(@PathVariable("id") String id) {
-		this.friendService.deletefriend(id);
+	public ResponseDto adduser(@PathVariable("id") String id) {
+		return this.friendService.deletefriend(id);
 	}
 }

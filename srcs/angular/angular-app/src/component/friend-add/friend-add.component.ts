@@ -2,6 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+export interface ResponseDto {
+  message: string;
+  succes: boolean;
+}
+
 @Component({
   selector: 'app-friend-add',
   standalone: true,
@@ -20,7 +25,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
       <button type="submit">Submit</button>
     </form>
     @if(this.valideForm) {
-      <h1 style="color: red;">"Please enter a valid first and last name. All fields are required."</h1>
+      <h1 style="color: red;">{{errorMessage}}</h1>
     }
   `,
   styles: ``
@@ -29,6 +34,7 @@ export class FriendAddComponent {
 
   private url: string = "http://localhost:3000/friend/creat";
   valideForm: boolean = false;
+  errorMessage: string = "";
 
   constructor(private http: HttpClient) {
   }
@@ -40,14 +46,21 @@ export class FriendAddComponent {
 
   onSubmit() {
     if (this.formGroup.valid) {
-      this.http.post(this.url, this.formGroup.value).subscribe((response) => {
-        console.log("response = ", response)
-        window.location.reload();
+      this.http.post<ResponseDto>(this.url, this.formGroup.value).subscribe((response) => {
+        console.log("response = ", response);
+        if (response.succes) {
+          window.location.reload();
+        }
+        else {
+          this.valideForm = true;
+          this.errorMessage = "friend already exists";
+        }
       },
         (error) => { console.log(error) }
       );
     } else {
       this.valideForm = true;
+      this.errorMessage = "Please enter a valid first and last name. All fields are required.";
     }
   }
 }
