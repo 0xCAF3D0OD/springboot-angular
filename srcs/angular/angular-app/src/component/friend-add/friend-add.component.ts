@@ -7,23 +7,72 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   standalone: true,
   imports: [ReactiveFormsModule],
   template: `
-  <h1>add a friend</h1>
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="firstname">firstname</label>
-        <input type="text" id="firstname" formControlName="firstname" required>
-      </div>
-      <div>
-        <label for="lastname">lastname</label>
-        <input type="text" id="lastname" formControlName="lastname" required minlength="2">
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <div class="form-container">
+      <h1>Add a friend</h1>
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="firstname">firstname</label>
+            <input type="text" id="firstname" formControlName="firstname" required>
+          </div>
+          <div class="form-group">
+            <label for="lastname">lastname</label>
+            <input type="text" id="lastname" formControlName="lastname" required minlength="2">
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+    </div>
     @if(this.valideForm) {
-      <h1 style="color: red;">"Please enter a valid first and last name. All fields are required."</h1>
+      <h1 style="color: red; font-size: 15px;">"Please enter a valid first and 
+        last name. All fields are required."</h1>
     }
   `,
-  styles: ``
+  styles: `
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.5);
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(241, 241, 241, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    input[type=text] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  `
 })
 export class FriendAddComponent {
 
@@ -51,3 +100,4 @@ export class FriendAddComponent {
     }
   }
 }
+
