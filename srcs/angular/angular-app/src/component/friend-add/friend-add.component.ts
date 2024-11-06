@@ -12,6 +12,7 @@ export interface ResponseDto {
   standalone: true,
   imports: [ReactiveFormsModule],
   template: `
+  <div class="form-container">
   <h1>add a friend</h1>
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
       <div>
@@ -27,8 +28,10 @@ export interface ResponseDto {
     @if(this.valideForm) {
       <h1 style="color: red;">{{errorMessage}}</h1>
     }
+    </div>
+
   `,
-  styles: ``
+  styleUrls: ['./friend-add.component.css']
 })
 export class FriendAddComponent {
 

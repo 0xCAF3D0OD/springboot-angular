@@ -7,11 +7,12 @@ import { HttpClient } from "@angular/common/http";
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="container">
-      <h1>{{titre}}</h1>
-      <h1> Friends list</h1>
-      <button class="button-delete" (click)="enableFriendDeletionMode()">delete a friend</button>
-    </div>
+    <div class="form-container">
+      <div class="form-group">
+        <h1>{{titre}}</h1>
+        <button class="button-delete" (click)="enableFriendDeletionMode()">delete a friend</button>
+      </div>
+      <div class="form-friends">
      @if (friend && friend.length > 0) {
      <div *ngFor='let friends of friend'>
         <h1>{{friends.firstname}}</h1>
@@ -22,16 +23,17 @@ import { HttpClient } from "@angular/common/http";
      </div>
      }
      @else {
-        <h1>t as pas d'amis</h1>
+        <h1>no contact added</h1>
      }
-    
+      </div>
+    </div>
   `,
   styleUrls: ['./friends-list.component.css']
 })
 export class FriendsListComponent {
   friend: any;
   delete_friends: boolean = false;
-  titre: string = "test";
+  titre: string = "Contacts list";
   private url: string = "http://localhost:3000/friend/";
 
   constructor(private http: HttpClient) {
