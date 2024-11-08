@@ -14,9 +14,8 @@ import { HttpClient } from "@angular/common/http";
       </div>
       <div class="form-friends">
      @if (friend && friend.length > 0) {
-     <div *ngFor='let friends of friend'>
-        <h1>{{friends.firstname}}</h1>
-       <h1>{{friends.lastname}}</h1>
+     <div style="display: flex; flex-direction: row" *ngFor='let friends of friend'>
+        <h1>{{friends.firstname}} {{friends.lastname}}</h1>
        @if (delete_friends) {
         <button (click)="deleteFriend(friends)">x</button>
        }
