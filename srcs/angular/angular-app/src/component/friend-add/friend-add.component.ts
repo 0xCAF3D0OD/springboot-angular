@@ -13,7 +13,7 @@ export interface ResponseDto {
   imports: [ReactiveFormsModule],
   template: `
   <div class="form-container">
-  <h1>add a friend</h1>
+    <h1>Add a friend</h1>
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
       <div>
         <label for="firstname">firstname</label>

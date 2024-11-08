@@ -33,7 +33,7 @@ import { FriendAddComponent } from '../friend-add/friend-add.component'
 })
 export class PortalComponent {
   title = 'spring-boot / angular-app';
-  private url: string = "http://localhost:3000/test1";
+  private url: string = "http://localhost:3000/test";
   data_httpclient: any;
 
   constructor(private http: HttpClient) {
