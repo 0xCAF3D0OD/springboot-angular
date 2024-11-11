@@ -14,6 +14,7 @@ services:
       - Springboot-angular
   db:
     image: mariadb:10.5
+    container_name: mariadb
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: root
@@ -24,6 +25,7 @@ services:
 
   adminer:
     image: adminer:4.8.0
+    container_name: adminer
     restart: always
     ports:
       - "8080:8080"
