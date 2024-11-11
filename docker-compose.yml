@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   spring-app:
+    container_name: spring-boot
     build:
       context: ./srcs/springboot/
     ports:
@@ -34,11 +35,11 @@ services:
 
   front:
     tty: true
+    container_name: angular
     build:
       context: ./srcs/angular/
     ports:
       - '4200:4200'
-    container_name: angular
     volumes:
       - "./srcs/angular/angular-app:/usr/src/app"
     restart: always
